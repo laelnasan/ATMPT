@@ -2,7 +2,7 @@
 A simple set of macros that creates a friendly environment for error handling in C inspired by the Awesome Debug Macros of Zed A. Shaw. 
 
 # What it does
-**ATMPT** sets two variables, one for error identification and the other for function return storage. The first is a simple int type that increments it-self by 1 (starting from 0) every time a `check()` is made. A `check()` verifies a condition, if it comes to be true it may call `fprintf()` for `stderr` and always skip to `ERROR`. If it is false the error counter is increased by 1. For the log calls atmpt uses my other set of macros called nsnlog and also found here.
+**ATMPT** sets two variables, one for error identification and the other for function return storage. The first is a simple int type that increments it-self by 1 (starting from 0) every time a `check()` is made. A `check()` verifies a condition, if it comes to be true it may call `fprintf()` for `stderr` and always skip to `ERROR`. If it is false the error counter is increased by 1. For the log calls atmpt uses my other set of macros called nsnlog that is also found here.
 The second variable is used for function return storage. It is just an attempt to reduce coding and may be removed together with `try` with no great penalties to the code. But it lets you do cool stuff like:
 
 ```C
@@ -32,4 +32,4 @@ int main(void){
   return 0;
 }
 ```
-The `ERROR` block is just a switch with the error counter as argument. It makes possible to code some fall-throught error handling witch is the first purpose of the macros.
+The `ERROR` block is just a switch with the error counter as argument. It makes possible to code some fallthrough error handling witch was the first purpose of the macros.
