@@ -34,4 +34,4 @@ int main(void){
 ```
 The `ERROR` block is just a switch with the error counter as argument. It makes possible to code some fallthrough error handling witch was the first purpose of the macros.
 
-UPDATE: This approach is wrong by design. It only works if the check code happens to be reached in run-time. It makes it mandatory to initiate a new environment in every single new block, as in an if-clause for example. The new way uses the line number where the check was made as argument.
+UPDATE: new `skip_check(int n)` function let you maintain the order even if using checks inside conditional blocks
