@@ -40,12 +40,13 @@
 
 #define try atmpt_return = 
 
-#define __proto_check(COND, IF_MSG_FUNC, IF_MSG, ...) do{\
+#define __proto_check(COND, F_MSG_FUNC, F_MSG, ...) do{\
 	if(COND){\
-		IF_MSG_FUNC(IF_MSG, ##__VA_ARGS__);\
+		F_MSG_FUNC(F_MSG, ##__VA_ARGS__);\
 		errno=0;\
+		_ERROR_HANDLER = __LINE__;\
 		goto handleerror;\
-	} _ERROR_HANDLER++;}while(0)
+	}}while(0)
 
 #define check(A, M, ...)\
 	__proto_check(A, log_err, M, ##__VA_ARGS__)
