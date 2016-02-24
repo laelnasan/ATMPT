@@ -44,9 +44,8 @@
 	if(COND){\
 		F_MSG_FUNC(F_MSG, ##__VA_ARGS__);\
 		errno=0;\
-		_ERROR_HANDLER = __LINE__;\
 		goto handleerror;\
-	}}while(0)
+	}_ERROR_HANDLER++;}while(0)
 
 #define check(A, M, ...)\
 	__proto_check(A, log_err, M, ##__VA_ARGS__)
@@ -55,5 +54,7 @@
 
 #define check_dbg(A, M, ...) \
 	__proto_check(A, log_dbg, M, ##__VA_ARGS__)	
+	
+#define skip_check(i) _ERROR_HANDLER += i
 
 #endif
